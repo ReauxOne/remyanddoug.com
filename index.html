@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Remy & Doug</title>
+  <meta name="description" content="Remy remembers, Doug does. A gentle assistant for busy brains: tell Remy anything, ask Doug for the one thing to do right now.">
+  <meta property="og:title" content="Remy & Doug">
+  <meta property="og:description" content="Remy remembers, Doug does. A gentle assistant for busy brains: tell Remy anything, ask Doug for the one thing to do right now.">
+  <meta property="og:url" content="https://remyanddoug.com/">
+  <link rel="canonical" href="https://remyanddoug.com/">
+  <meta name="theme-color" content="#FAFAF9" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#111111" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <canvas id="sea" aria-hidden="true"></canvas>
+  <div class="glow" aria-hidden="true"></div>
+
+  <div class="page">
+    <header>
+      <div class="wrap">
+        <a class="logo" href="./"><svg class="mark" viewBox="0 0 13 10" aria-hidden="true"><rect x="5" y="0" width=".86" height=".86"/><rect x="7" y="0" width=".86" height=".86"/><rect x="6" y="1" width=".86" height=".86"/><rect x="0" y="2" width=".86" height=".86"/><rect x="1" y="2" width=".86" height=".86"/><rect x="2" y="2" width=".86" height=".86"/><rect x="3" y="2" width=".86" height=".86"/><rect x="5" y="2" width=".86" height=".86"/><rect x="6" y="2" width=".86" height=".86"/><rect x="7" y="2" width=".86" height=".86"/><rect x="9" y="2" width=".86" height=".86"/><rect x="10" y="2" width=".86" height=".86"/><rect x="11" y="2" width=".86" height=".86"/><rect x="12" y="2" width=".86" height=".86"/><rect x="1" y="3" width=".86" height=".86"/><rect x="2" y="3" width=".86" height=".86"/><rect x="3" y="3" width=".86" height=".86"/><rect x="4" y="3" width=".86" height=".86"/><rect x="5" y="3" width=".86" height=".86"/><rect x="6" y="3" width=".86" height=".86"/><rect x="7" y="3" width=".86" height=".86"/><rect x="8" y="3" width=".86" height=".86"/><rect x="9" y="3" width=".86" height=".86"/><rect x="10" y="3" width=".86" height=".86"/><rect x="11" y="3" width=".86" height=".86"/><rect x="0" y="4" width=".86" height=".86"/><rect x="1" y="4" width=".86" height=".86"/><rect x="2" y="4" width=".86" height=".86"/><rect x="3" y="4" width=".86" height=".86"/><rect x="5" y="4" width=".86" height=".86"/><rect x="6" y="4" width=".86" height=".86"/><rect x="7" y="4" width=".86" height=".86"/><rect x="9" y="4" width=".86" height=".86"/><rect x="10" y="4" width=".86" height=".86"/><rect x="11" y="4" width=".86" height=".86"/><rect x="12" y="4" width=".86" height=".86"/><rect x="1" y="5" width=".86" height=".86"/><rect x="2" y="5" width=".86" height=".86"/><rect x="3" y="5" width=".86" height=".86"/><rect x="6" y="5" width=".86" height=".86"/><rect x="9" y="5" width=".86" height=".86"/><rect x="10" y="5" width=".86" height=".86"/><rect x="11" y="5" width=".86" height=".86"/><rect x="6" y="6" width=".86" height=".86"/><rect x="6" y="7" width=".86" height=".86"/><rect x="6" y="8" width=".86" height=".86"/><rect x="6" y="9" width=".86" height=".86"/></svg><span>Remy &amp; Doug</span></a>
+        <nav class="nav" aria-label="Main"><a href="support.html">Support</a><a class="pill" href="./#soon"><span class="dot"></span>Beta 2027</a></nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="wrap hero">
+        <h1>what's on your mind?</h1>
+        <form class="ask" id="ask" autocomplete="off">
+          <label for="thought" style="position:absolute;left:-9999px">Your thought</label>
+          <input id="thought" maxlength="120" placeholder="Tell me anything…">
+          <div class="row">
+            <div class="tools" aria-hidden="true"><span>+</span><span>◎</span></div>
+            <div class="btns">
+              <button type="submit">Tell Remy</button>
+              <button type="button" class="go" id="goBtn">Ask Doug ↗</button>
+            </div>
+          </div>
+        </form>
+        <div class="reply" id="reply" aria-live="polite"></div>
+        <p class="mono hint">Try it: type something, then tap Tell Remy</p>
+      </div>
+
+      <section>
+        <div class="wrap">
+          <span class="mono">01 · How it works</span>
+          <h2>Two friends.<br>That's the whole app.</h2>
+          <div class="duo">
+            <div class="add-word">
+              <span class="mono">Remy remembers</span>
+              <h3>Remy<span class="tick"></span></h3>
+              <p>The moment a thought shows up, tell Remy. Say it or type it. It gets filed for you: work or home, quick or big, where and when.</p>
+              <div class="say"><b>Hey Remy,</b> remember washer fluid.</div>
+            </div>
+            <div class="go-word">
+              <span class="mono">Doug does</span>
+              <h3>Doug<span class="tick"></span></h3>
+              <p>Ask Doug what's next and say how much energy you have. You get one thing that fits your time, your place and your tank. Not a list. One thing.</p>
+              <div class="say"><b>Doug, what now?</b> I'm running low today.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="wrap">
+          <span class="mono">02 · Gentle by design</span>
+          <h2>It does the remembering.<br>You do the living.</h2>
+          <ul class="rules">
+            <li><span class="mono">a</span><div><strong>One answer, never a list.</strong><span class="d">You'll never open the app to forty-seven things.</span></div></li>
+            <li><span class="mono">b</span><div><strong>"Not now" is free.</strong><span class="d">No red badges, no streaks, no guilt. Remy quietly remembers.</span></div></li>
+            <li><span class="mono">c</span><div><strong>Work stays at work.</strong><span class="d">Set your hours. Outside them, work stays out of sight.</span></div></li>
+            <li><span class="mono">d</span><div><strong>Matches your energy.</strong><span class="d">Low, some or full tank. Doug's suggestion fits how you feel.</span></div></li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="soon" id="soon">
+        <div class="wrap">
+          <span class="mono">03 · Coming soon</span>
+          <h2>iPhone and Android, 2027.</h2>
+          <p>Works with Siri, too: “Hey Siri, tell Remy to grab milk.” We're testing with a small group first. Want in? Send a note and we'll save you a spot.</p>
+          <a class="go" href="mailto:hello@remyanddoug.com?subject=Beta">Join the beta</a>
+          <div class="stores"><span class="pill">App Store · soon</span><span class="pill">Google Play · soon</span></div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="wrap">
+        <span>© 2026 Remy &amp; Doug</span>
+        <nav><a href="support.html">Support</a><a href="privacy.html">Privacy</a></nav>
+        <div class="controls"><span class="mono" id="season"></span><button type="button" id="pause" aria-pressed="false">Pause</button></div>
+      </div>
+    </footer>
+  </div>
+
+  <script src="art/dragonflies.js"></script>
+  <script src="js/sea.js"></script>
+  <script>
+  // Try-it demo
+  const tucked = [];
+  const starters = ['Water the basil', 'Reply to Sam’s text', 'Put the laundry in the dryer', 'Find the library book'];
+  const reply = document.getElementById('reply');
+  const input = document.getElementById('thought');
+  const say = (html) => { reply.innerHTML = html; };
+  const esc = (s) => s.replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  const ask = document.getElementById('ask');
+  ask.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const t = input.value.trim();
+    if (!t) { input.focus(); return; }
+    tucked.push(t);
+    input.value = '';
+    window.sea && sea.burst(ask);
+    say(`<p>Remy’s got it: “${esc(t)}”. Nothing else to do.</p>`);
+  });
+  document.getElementById('goBtn').addEventListener('click', () => {
+    const pool = tucked.length ? tucked : starters;
+    const pick = pool[Math.floor(Math.random() * pool.length)];
+    say(`<p>Doug says: right now, just this.</p><p class="one">${esc(pick)}</p>`);
+  });
+
+  if (window.ART) document.getElementById('season').textContent = `${ART.season} · ${ART.name}`;
+  const pauseBtn = document.getElementById('pause');
+  pauseBtn.addEventListener('click', () => {
+    const p = pauseBtn.getAttribute('aria-pressed') !== 'true';
+    pauseBtn.setAttribute('aria-pressed', p);
+    pauseBtn.textContent = p ? 'Play' : 'Pause';
+    window.sea && sea.setPaused(p);
+  });
+  </script>
+</body>
+</html>
